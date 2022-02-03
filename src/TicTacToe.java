@@ -7,7 +7,12 @@ public class TicTacToe {
    };
    static private int player;
    private boolean isGame=false;
-   public void newGame(){
+
+    public TicTacToe() {
+        this.newGame();
+    }
+
+    public void newGame(){
        for(int i=0;i<3;i++)
            for (int j = 0; j < 3; j++)this.pole[i][j]="-";
 
@@ -82,7 +87,10 @@ public class TicTacToe {
                }
            if(!full)break;
        }
-       if(full)return "Draw";
+       if(full){
+           this.isGame=false;
+           return "Draw";
+       }
        return "Move completed";
    }
 }
